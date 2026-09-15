@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stillhouse</title>
+<meta name="description" content="Cinematic property walkthroughs built entirely from the photographs already on your listing page. No shoot to schedule, no one driving to the property.">
+<meta name="theme-color" content="#0E1417">
+<meta property="og:title" content="Stillhouse — Listings that move">
+<meta property="og:description" content="Cinematic property walkthroughs built entirely from the photographs already on your listing page.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stillhousemotion.com">
+<link rel="canonical" href="https://stillhousemotion.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Archivo:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#0E1417; --raise:#161E22; --line:#232D32;
+    --bone:#EDE9E1; --muted:#8A9499; --dim:#5F6A6F;
+    --tidal:#6E9AA6; --tidal-deep:#46727E;
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--ink); color:var(--bone);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px; margin:0 auto; padding-inline:24px; padding-block:0;}
+  a{color:var(--tidal); text-decoration:none;}
+  a:hover{color:var(--bone);}
+  :focus-visible{outline:2px solid var(--tidal); outline-offset:3px;}
+  .eyebrow{font-size:11px; font-weight:500; letter-spacing:.28em; text-transform:uppercase; color:var(--dim);}
+
+  /* hero */
+  header{padding-block:88px 72px; border-bottom:1px solid var(--line);}
+  .lockup{display:flex; align-items:center; gap:18px; margin-bottom:56px;}
+  .lockup .name{font-family:var(--serif); font-weight:300; font-size:38px; line-height:1; letter-spacing:-.01em;}
+  h1{
+    font-family:var(--serif); font-weight:300; font-size:clamp(34px,6vw,62px);
+    line-height:1.12; letter-spacing:-.018em; margin:0 0 26px; max-width:17ch;
+    text-wrap:balance;
+  }
+  h1 em{font-style:normal; color:var(--tidal);}
+  .lede{font-size:18px; line-height:1.65; color:var(--muted); max-width:56ch; margin:0 0 38px; text-wrap:pretty;}
+  .cta{
+    display:inline-flex; align-items:center; gap:10px; background:var(--tidal-deep); color:#fff;
+    font-weight:500; font-size:15px; padding:14px 26px; border:0;
+  }
+  .cta:hover{background:var(--tidal); color:var(--ink);}
+
+  section{padding-block:72px; border-bottom:1px solid var(--line);}
+  h2{font-family:var(--serif); font-weight:400; font-size:28px; line-height:1.25; margin:18px 0 0; letter-spacing:-.01em;}
+  .section-intro{color:var(--muted); max-width:58ch; margin:14px 0 0; text-wrap:pretty;}
+
+  /* work */
+  .work{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; margin-top:40px;}
+  .film{display:flex; flex-direction:column; background:var(--raise); border:1px solid var(--line); text-decoration:none; color:inherit;}
+  .film:hover{border-color:var(--tidal-deep);}
+  .film:hover .play circle{fill:var(--tidal-deep);}
+  .face{
+    aspect-ratio:16/9; max-width:100%; position:relative;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(160deg,#1C262B 0%,#101619 62%,#0C1114 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .play circle{fill:rgba(237,233,225,.10); transition:fill .18s ease;}
+  .runtime{position:absolute; right:14px; bottom:12px; font-size:11px; letter-spacing:.14em; color:var(--dim); font-variant-numeric:tabular-nums;}
+  .film-body{padding:22px 24px 26px; display:flex; flex-direction:column; gap:7px;}
+  .film-title{font-family:var(--serif); font-size:22px; font-weight:400; line-height:1.25;}
+  .film-meta{font-size:13px; color:var(--muted);}
+  .film-shots{font-size:12px; color:var(--dim); letter-spacing:.04em;}
+
+  /* steps — a real sequence, so numbered */
+  .steps{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:34px; margin-top:44px;}
+  .step{display:flex; flex-direction:column; gap:12px;}
+  .step-n{font-family:var(--serif); font-size:34px; font-weight:300; color:var(--tidal-deep); line-height:1;}
+  .step h3{font-size:15px; font-weight:600; margin:0; letter-spacing:.005em;}
+  .step p{margin:0; font-size:14.5px; color:var(--muted); line-height:1.62; text-wrap:pretty;}
+
+  /* craft list */
+  .craft{margin-top:40px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px;}
+  .craft dl{margin:0; display:contents;}
+  .craft div{padding:20px 0; border-top:1px solid var(--line);}
+  .craft dt{font-size:14.5px; font-weight:600; margin-bottom:5px;}
+  .craft dd{margin:0; font-size:14px; color:var(--muted); line-height:1.6; text-wrap:pretty;}
+
+  footer{padding-block:72px 96px;}
+  .foot-grid{display:flex; flex-wrap:wrap; gap:36px; align-items:flex-end; justify-content:space-between;}
+  .foot-name{font-family:var(--serif); font-weight:300; font-size:26px;}
+  .foot-tag{font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--tidal); margin-top:6px;}
+  .contact{font-size:14px; color:var(--muted); line-height:1.9;}
+
+  @media (max-width:760px){
+    .work,.steps,.craft{grid-template-columns:minmax(0,1fr);}
+    .craft div:first-child{border-top:1px solid var(--line);}
+    header{padding-block:56px 48px;}
+    section{padding-block:52px;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="lockup">
+      <svg width="40" height="40" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="1.2" y="1.2" width="45.6" height="45.6" stroke="#EDE9E1" stroke-width="1.8"/>
+        <rect x="9" y="7.4" width="30" height="30" stroke="#EDE9E1" stroke-width="1.6"/>
+        <rect x="17.4" y="13.2" width="13.2" height="13.2" fill="#6E9AA6"/>
+      </svg>
+      <div class="name">Stillhouse</div>
+    </div>
+
+    <h1>Your listing photos, <em>already moving</em>.</h1>
+    <p class="lede">Cinematic walkthroughs for short-term rentals — built entirely from the photographs on your listing page. No shoot to schedule, no one driving to the property.</p>
+    <a class="cta" href="mailto:sean@stillhousemotion.com?subject=Stillhouse%20—%20property%20walkthroughs">See a walkthrough of your own property
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+  </header>
+
+  <section>
+    <div class="eyebrow">Recent work</div>
+    <h2>Two houses, no site visits</h2>
+    <p class="section-intro">Both walkthroughs below were cut entirely from photographs the owners already had. Neither property was visited.</p>
+
+    <div class="work">
+      <a class="film" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3J8oC1dMALkP9dgIwC5rx5oM8gq/2878b7a3-1064-4cd8-96c0-bdd72fd5f438.mp4">
+        <div class="face">
+          <svg class="play" width="58" height="58" viewBox="0 0 58 58" fill="none" aria-hidden="true">
+            <circle cx="29" cy="29" r="28.25" stroke="#EDE9E1" stroke-opacity=".5" stroke-width="1.5"/>
+            <path d="M24 20.5 38 29l-14 8.5V20.5Z" fill="#EDE9E1"/>
+          </svg>
+          <div class="runtime">1:08</div>
+        </div>
+        <div class="film-body">
+          <div class="film-title">It's All Good</div>
+          <div class="film-meta">Five-bedroom beach house · Plum Island, Massachusetts</div>
+          <div class="film-shots">21 shots · aerial descent, five bedrooms, deck and hot tub, twilight close</div>
+        </div>
+      </a>
+
+      <a class="film" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3J8oC1dMALkP9dgIwC5rx5oM8gq/7ba138c6-ea7d-4051-a50f-a3c8e5f3c45d.mp4">
+        <div class="face">
+          <svg class="play" width="58" height="58" viewBox="0 0 58 58" fill="none" aria-hidden="true">
+            <circle cx="29" cy="29" r="28.25" stroke="#EDE9E1" stroke-opacity=".5" stroke-width="1.5"/>
+            <path d="M24 20.5 38 29l-14 8.5V20.5Z" fill="#EDE9E1"/>
+          </svg>
+          <div class="runtime">1:31</div>
+        </div>
+        <div class="film-body">
+          <div class="film-title">South End Brownstone</div>
+          <div class="film-meta">Four-bedroom townhouse · Boston, Massachusetts</div>
+          <div class="film-shots">23 shots · parlour floor, primary suite, walk-in closet reveal, garden</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">How it works</div>
+    <h2>Three steps, about a week</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <h3>Send the listing link</h3>
+        <p>That's the whole brief. Everything needed is already published — the photographs, the room labels, and usually a floor plan.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <h3>We read the house</h3>
+        <p>The floor plan sets the route, so the video walks the property the way a guest actually would — front door, main floor, upstairs, out to the garden.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <h3>You get the video</h3>
+        <p>Sixty to ninety seconds, 1080p, scored. Delivered silent as well, so you can drop a voiceover or your own track over it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">The difference</div>
+    <h2>It's a walkthrough, not a slideshow</h2>
+    <div class="craft">
+      <dl>
+        <div>
+          <dt>Real camera moves</dt>
+          <dd>Every shot is a named move — a dolly down the galley kitchen, a truck across the deck, a crane up the facade at dusk — chosen for what that room's geometry can carry.</dd>
+        </div>
+        <div>
+          <dt>Rooms connect</dt>
+          <dd>A shot that ends pushing toward a doorway is followed by the room beyond it. The eye fills in the step through, and the cut disappears.</dd>
+        </div>
+        <div>
+          <dt>Nothing invented</dt>
+          <dd>Architecture, furniture, materials and light stay exactly as photographed. Every frame is checked against its source before delivery.</dd>
+        </div>
+        <div>
+          <dt>Scales across a portfolio</dt>
+          <dd>Because nobody travels, forty scattered properties cost the same per video as one. Distance stops being the expensive part.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <div class="foot-name">Stillhouse</div>
+        <div class="foot-tag">Listings that move</div>
+      </div>
+      <div class="contact">
+        <a href="mailto:sean@stillhousemotion.com">sean@stillhousemotion.com</a><br>
+        (603) 560-1133<br>
+        <a href="https://stillhousemotion.com">stillhousemotion.com</a><br>
+        <span style="color:var(--dim)">New England &amp; remote</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
