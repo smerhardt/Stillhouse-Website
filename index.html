@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Stillhouse</title>
-<meta name="description" content="Cinematic property walkthroughs built entirely from the photographs already on your listing page. No shoot to schedule, no one driving to the property.">
+<meta name="description" content="Cinematic property walkthroughs for short-term rentals and home listings, built entirely from the photographs already on your listing page.">
 <meta name="theme-color" content="#0E1417">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20width%3D%2748%27%20height%3D%2748%27%20fill%3D%27%230E1417%27%2F%3E%3Crect%20x%3D%277%27%20y%3D%277%27%20width%3D%2734%27%20height%3D%2734%27%20fill%3D%27none%27%20stroke%3D%27%23EDE9E1%27%20stroke-width%3D%273%27%2F%3E%3Crect%20x%3D%2718%27%20y%3D%2718%27%20width%3D%2712%27%20height%3D%2712%27%20fill%3D%27%236E9AA6%27%2F%3E%3C%2Fsvg%3E">
 <meta property="og:title" content="Stillhouse — Listings that move">
 <meta property="og:description" content="Cinematic property walkthroughs built entirely from the photographs already on your listing page.">
 <meta property="og:type" content="website">
@@ -54,7 +55,7 @@
   .section-intro{color:var(--muted); max-width:58ch; margin:14px 0 0; text-wrap:pretty;}
 
   /* work */
-  .work{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; margin-top:40px;}
+  .work{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:28px; margin-top:40px;}
   .film{display:flex; flex-direction:column; background:var(--raise); border:1px solid var(--line); text-decoration:none; color:inherit;}
   .film:hover{border-color:var(--tidal-deep);}
   .film:hover .play circle{fill:var(--tidal-deep);}
@@ -97,7 +98,34 @@
     header{padding-block:56px 48px;}
     section{padding-block:52px;}
   }
-  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+  /* request form */
+  html{scroll-behavior:smooth;}
+  #request{scroll-margin-top:24px;}
+  .form{margin-top:40px; max-width:620px; display:grid; gap:20px;}
+  .field{display:flex; flex-direction:column; gap:7px;}
+  .field label{font-size:13px; font-weight:600; letter-spacing:.01em; color:var(--bone);}
+  .field .hint{font-size:12.5px; color:var(--dim); font-weight:400; letter-spacing:0;}
+  .field input,.field select,.field textarea{
+    font-family:var(--sans); font-size:15px; line-height:1.5; color:var(--bone);
+    background:var(--raise); border:1px solid var(--line); border-radius:0;
+    padding:12px 14px; width:100%; appearance:none;
+  }
+  .field textarea{min-height:104px; resize:vertical;}
+  .field select{background-image:none;}
+  .field input::placeholder,.field textarea::placeholder{color:var(--dim);}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:2px solid var(--tidal); outline-offset:1px; border-color:var(--tidal-deep);
+  }
+  .form button{
+    justify-self:start; display:inline-flex; align-items:center; gap:10px;
+    background:var(--tidal-deep); color:#fff; font-family:var(--sans); font-weight:500;
+    font-size:15px; padding:14px 26px; border:0; cursor:pointer;
+  }
+  .form button:hover{background:var(--tidal); color:var(--ink);}
+  .form .after{font-size:13.5px; color:var(--muted); margin:0;}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+  @media (max-width:760px){ .form{max-width:100%;} }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;} html{scroll-behavior:auto;}}
 </style>
 </head>
 <body>
@@ -114,8 +142,8 @@
     </div>
 
     <h1>Your listing photos, <em>already moving</em>.</h1>
-    <p class="lede">Cinematic walkthroughs for short-term rentals — built entirely from the photographs on your listing page. No shoot to schedule, no one driving to the property.</p>
-    <a class="cta" href="mailto:sean@stillhousemotion.com?subject=Stillhouse%20—%20property%20walkthroughs">See a walkthrough of your own property
+    <p class="lede">Cinematic walkthroughs for short-term rentals and home listings — built entirely from the photographs already on your listing page. No shoot to schedule, no one driving to the property.</p>
+    <a class="cta" href="#request">Request a walkthrough of your own property
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
     </a>
   </header>
@@ -123,7 +151,7 @@
   <section>
     <div class="eyebrow">Recent work</div>
     <h2>Two houses, no site visits</h2>
-    <p class="section-intro">Both walkthroughs below were cut entirely from photographs the owners already had. Neither property was visited.</p>
+    <p class="section-intro">Every walkthrough below was cut entirely from photographs the owner already had. None of these properties was visited.</p>
 
     <div class="work">
       <a class="film" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3J8oC1dMALkP9dgIwC5rx5oM8gq/2878b7a3-1064-4cd8-96c0-bdd72fd5f438.mp4">
@@ -141,18 +169,18 @@
         </div>
       </a>
 
-      <a class="film" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3J8oC1dMALkP9dgIwC5rx5oM8gq/7ba138c6-ea7d-4051-a50f-a3c8e5f3c45d.mp4">
+      <a class="film" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3J8oC1dMALkP9dgIwC5rx5oM8gq/ed2e0e37-02aa-4954-80df-76e7f5fc2501.mp4">
         <div class="face">
           <svg class="play" width="58" height="58" viewBox="0 0 58 58" fill="none" aria-hidden="true">
             <circle cx="29" cy="29" r="28.25" stroke="#EDE9E1" stroke-opacity=".5" stroke-width="1.5"/>
             <path d="M24 20.5 38 29l-14 8.5V20.5Z" fill="#EDE9E1"/>
           </svg>
-          <div class="runtime">1:31</div>
+          <div class="runtime">0:55</div>
         </div>
         <div class="film-body">
-          <div class="film-title">South End Brownstone</div>
-          <div class="film-meta">Four-bedroom townhouse · Boston, Massachusetts</div>
-          <div class="film-shots">23 shots · parlour floor, primary suite, walk-in closet reveal, garden</div>
+          <div class="film-title">7 Fran Avenue</div>
+          <div class="film-meta">Two-bedroom Cape · Plaistow, New Hampshire</div>
+          <div class="film-shots">13 shots · facade, covered portico, living room and kitchen each in one unbroken move</div>
         </div>
       </a>
     </div>
@@ -170,7 +198,7 @@
       <div class="step">
         <div class="step-n">02</div>
         <h3>We read the house</h3>
-        <p>The floor plan sets the route, so the video walks the property the way a guest actually would — front door, main floor, upstairs, out to the garden.</p>
+        <p>The floor plan sets the route, so the video walks the property the way a guest or a buyer actually would — front door, main floor, upstairs, out to the garden.</p>
       </div>
       <div class="step">
         <div class="step-n">03</div>
@@ -203,6 +231,54 @@
         </div>
       </dl>
     </div>
+  </section>
+
+  <section id="request">
+    <div class="eyebrow">Get started</div>
+    <h2>Send the listing link</h2>
+    <p class="section-intro">That really is the whole brief. I'll look at the photo set and reply within a day or two with what it can carry — and I'll tell you straight if it can't carry a good walkthrough.</p>
+
+    <form class="form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="5b686442-6b56-4827-b531-32cc8671c730">
+      <input type="hidden" name="subject" value="Stillhouse — new walkthrough request">
+      <input type="hidden" name="from_name" value="Stillhouse website">
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required>
+      </div>
+
+      <div class="field">
+        <label for="f-link">Link to the listing <span class="hint">— Airbnb, VRBO, Zillow, your own site, anywhere the photos live</span></label>
+        <input id="f-link" name="listing_url" type="url" inputmode="url" placeholder="https://" required>
+      </div>
+
+      <div class="field">
+        <label for="f-type">What is it?</label>
+        <select id="f-type" name="property_type">
+          <option>Short-term rental</option>
+          <option>Home for sale</option>
+          <option>Something else</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f-notes">Anything else <span class="hint">— optional</span></label>
+        <textarea id="f-notes" name="notes" placeholder="Rooms to feature, a deadline, how many properties you have."></textarea>
+      </div>
+
+      <button type="submit">Send the listing
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+
+      <p class="after">Prefer email? <a href="mailto:sean@stillhousemotion.com">sean@stillhousemotion.com</a></p>
+    </form>
   </section>
 
   <footer>
